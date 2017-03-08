@@ -46,7 +46,10 @@ extern class ObservableStatic<T> {
    *   Ember.js element or EventEmitter to attach a listener. For Backbone.Marionette
    *   this would be the application or an EventAggregator object.
    */
-  public static function fromEvent(element: Dynamic, eventName: String, ?selector: EventListener): Observable<Event>;
+  // Allow mouse events.
+  @:overload(function(element: Dynamic, eventName: String, ?selector: EventListener): Observable<js.html.MouseEvent> { })
+  @:overload(function(element: Dynamic, eventName: String, ?selector: EventListener): Observable<js.html.Event> { })
+  public static function fromEvent(element: Dynamic, eventName: String, ?selector: EventListener): Dynamic;
 
   /**
    * @param iterable (Array | Arguments | Iterable): An array-like or iterable object to convert to an Observable sequence.
