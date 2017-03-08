@@ -1,7 +1,6 @@
 package rx.core;
 
-
-@:native("Rx.IDisposable")
+@:jsRequire("rxjs", "IDisposable")
 extern interface IDisposable {
   function dispose(): Void;
 }
