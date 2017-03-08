@@ -37,7 +37,7 @@ typedef PromiseCtor<T, TPromise: IPromise<T>> = {
 /**
   * NOTE: Haxe cannot have duplicated field even if instance method and static methods.
  */
-@:native("Rx.Observable")
+@:jsRequire("rxjs", "Observable")
 extern class ObservableStatic<T> {
 // static methods {{{
   /**
@@ -287,7 +287,7 @@ extern class ObservableStatic<T> {
 }
 
 
-@:native("Rx.Observable")
+@:jsRequire("rxjs", "Observable")
 extern class Observable<T> implements IObservable<T> {
   // instance methods {{{
   @:overload(function (observer: Observer<T>): IDisposable {})

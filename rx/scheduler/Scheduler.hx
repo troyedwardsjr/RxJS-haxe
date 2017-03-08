@@ -3,7 +3,7 @@ package rx.scheduler;
 import rx.scheduler.ICurrentThreadScheduler;
 
 
-@:native('Rx.Scheduler')
+@:jsRequire("rxjs", "Scheduler")
 extern class Scheduler implements IScheduler {
   public static var currentThread(default, null): ICurrentThreadScheduler;
 }

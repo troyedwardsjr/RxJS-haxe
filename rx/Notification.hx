@@ -5,7 +5,7 @@ import rx.Observer;
 import rx.Observable;
 import rx.scheduler.IScheduler;
 
-@:native('Rx.Notification')
+@:jsRequire("rxjs", "Notification")
 extern class Notification<T> {
   public var hasValue(default, null): Bool;
   public var kind(default, null): String;

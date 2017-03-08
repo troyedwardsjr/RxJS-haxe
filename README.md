@@ -1,9 +1,11 @@
 # RxJS-haxe
 
+Fork of [RxJS-Haxe](https://github.com/hachibeeDI/RxJS-haxe.git) externs using requirejs for webpack instead of native. I plan to (possibly) keep it up to date with the newest RxJS version. 
+
 ## How to install
 
 ```bash
-  haxelib git RxJS https://github.com/hachibeeDI/RxJS-haxe.git
+  haxelib git RxJS https://github.com/troyedwardsjr/RxJS-haxe.git
 ```
 
 add your `.hxml`
