@@ -23,7 +23,8 @@ extern interface IObservable<T> {
 
 
 typedef SelectorWithIndexFunc<T, TResult> = T -> Int -> TResult;
-typedef SelectorWithObservableFunc<T, U> = T -> Int -> Observable<T> -> U;
+typedef SelectorWithObservableFunc<T, U> = Int -> Int -> Int;
+typedef SelectorReduce<T, U> = Int -> Int -> U;
 typedef Predicate<T> = T -> Int -> Observable<T> -> Bool;
 
 // resolver, rejector
@@ -394,6 +395,7 @@ extern class Observable<T> implements IObservable<T> {
   public function retry(?retryCount: Int): Observable<T>;
   @:overload(function <TAcc>(seed: TAcc, accumulator: TAcc -> T -> TAcc): Observable<TAcc> {})
   public function scan(accumulator: T -> T -> T): Observable<T>;
+  public function reduce<TResult>(selector: SelectorWithObservableFunc<T, TResult>): Observable<T>;
   public function skipLast(count: Int): Observable<T>;
   @:overload(function (values: Iterable<T>): Observable<T> {})
   public function startWith(scheduler: IScheduler, values: Iterable<T>): Observable<T>;
