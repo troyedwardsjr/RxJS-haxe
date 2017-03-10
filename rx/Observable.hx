@@ -8,10 +8,10 @@ import rx.Observer;
 import rx.Notification;
 import rx.promise.IPromise;
 
-
 import js.html.EventListener;
 import js.html.Event;
 
+import haxe.extern.EitherType;
 
 extern interface IObservable<T> {
   @:overload(function (observer: Observer<T>): IDisposable {})
@@ -47,9 +47,7 @@ extern class ObservableStatic<T> {
    *   this would be the application or an EventAggregator object.
    */
   // Allow mouse events.
-  @:overload(function(element: Dynamic, eventName: String, ?selector: EventListener): Observable<js.html.MouseEvent> { })
-  @:overload(function(element: Dynamic, eventName: String, ?selector: EventListener): Observable<js.html.Event> { })
-  public static function fromEvent(element: Dynamic, eventName: String, ?selector: EventListener): Dynamic;
+  public static function fromEvent(element: Dynamic, eventName: String, ?selector: EventListener): EitherType<Observable<js.html.MouseEvent>, Observable<js.html.Event>>;
 
   /**
    * @param iterable (Array | Arguments | Iterable): An array-like or iterable object to convert to an Observable sequence.
